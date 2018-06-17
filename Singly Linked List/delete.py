@@ -5,7 +5,7 @@ from build_insert_traverse_01 import insert_at_end, Node, do_list_traverse
 
 if __name__ == '__main__':
     count = 20
-    head = Node()
+    head = Node() # the external reference of the list
     delete_node = True
     delete_at = 0
     insert_at_end(head, count, 1)
@@ -37,4 +37,6 @@ if __name__ == '__main__':
         point.next = point.next.next # 第delete_at位置的前一個節點的指標欄位指向第delete_at位置的後一個節點
         print('刪除的節點內容：%s' %(delete_at_node.data))
         print('========================')
+        # delete_at_node = None # still take up space in memory.
+        del delete_at_node
 
