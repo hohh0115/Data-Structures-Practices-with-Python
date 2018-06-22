@@ -37,6 +37,7 @@ if __name__ == '__main__':
         point.next = point.next.next # 第delete_at位置的前一個節點的指標欄位指向第delete_at位置的後一個節點
         print('刪除的節點內容：%s' %(delete_at_node.data))
         print('========================')
-        # delete_at_node = None # still take up space in memory.
-        del delete_at_node
 
+        delete_at_node.next = None
+        # delete_at_node = None # still take up space in memory.
+        # del delete_at_node

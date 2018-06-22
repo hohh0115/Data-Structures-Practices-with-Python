@@ -24,6 +24,9 @@ class DoublyLinkedList():
     因此，有資料的節點是位於head node跟tail node中間的節點們
     """
     def __init__(self):
+        """
+        初始化
+        """
         self.head = Node(d='head')
         self.tail = Node(d='tail')
         self.size = 0
@@ -79,14 +82,20 @@ class DoublyLinkedList():
             # new_node.next = curr_node.next
             # new_node.prior = curr_node
 
-            curr_node.next = new_node
             curr_node.next.prior = new_node
+            curr_node.next = new_node
 
             self.size += 1
         else:
             print('Position not exist')
 
     def fetch_position_data(self, position):
+        """
+        找出第position位置的資料，position從1開始，而非0
+        若curr_node由self.head開始，則curr_position <= position
+        :param position:
+        :return:
+        """
         if 0 < position <= self.size:
             curr_node = self.head.next # trick
             curr_position = 1
@@ -97,6 +106,59 @@ class DoublyLinkedList():
             print('Position', position, 'data:', curr_node.data)
         else:
             print('Position not exist')
+
+    def remove_first(self):
+        """
+        刪除串列中第一個節點(head node後的第一個節點)
+        :return:
+        """
+        delete_node = self.head.next
+        self.head.next = self.head.next.next
+        delete_node.next.prior = self.head # 第position位置之後的節點的前驅指標更改
+        delete_node.next = delete_node.prior = None
+
+        self.size += 1
+
+    def remove_last(self):
+        """
+        刪除串列中最後一個節點(tail node的前一個節點)
+        :return:
+        """
+        delete_node = self.tail.prior
+
+        self.tail.prior = delete_node.prior
+        delete_node.prior.next = self.tail
+        delete_node.next = delete_node.prior = None
+
+        self.size -= 1
+
+    def remove(self, position):
+        """
+        移除第position位置的節點，position從1開始，而非0
+        :param position:
+        :return:
+        """
+        delete_node = self.head.next # trick
+        curr_position = 1
+        if 0 < position <= self.size:
+            while curr_position < position: # delete_node = 第position位置的node
+                delete_node = delete_node.next
+                curr_position += 1
+
+            delete_node.prior.next = delete_node.next
+            delete_node.next.prior = delete_node.prior
+            delete_node.next = delete_node.prior = None
+
+            self.size -= 1
+        else:
+            print('Position not exist')
+
+    def print_list_size(self):
+        """
+        印出當前串列長度
+        :return:
+        """
+        print('List Size:', self.size)
 
     def print_list(self):
         curr_node = self.head.next
@@ -114,6 +176,7 @@ def main():
     myList.insert_at_end('5')
     myList.insert_at_front('6')
     myList.insert('7', 5)
+    myList.print_list_size()
     myList.print_list()
 
     myList.fetch_position_data(7)
@@ -121,6 +184,12 @@ def main():
     print('==================')
     print('Begin to remove...')
 
+    myList.remove_first()
+    myList.remove_last()
+    myList.remove(4)
+    myList.remove(1)
+    myList.fetch_position_data(2)
+    myList.print_list()
 
 if __name__ == '__main__':
     main()

@@ -100,7 +100,10 @@ class CircularLinkedList():
         移除第一個Node
         :return:
         """
-        self.head.next_node = self.head.next_node.next_node
+        delete_node = self.head.next_node
+        self.head.next_node = delete_node.next_node
+        delete_node.next_node = None
+
         self.size -= 1
 
     def remove_last(self):
@@ -110,10 +113,13 @@ class CircularLinkedList():
         """
         curr_node = self.head.next_node
 
-        while curr_node.next_node.next_node != self.head: # 最後一個節點的前一個節點
+        while curr_node.next_node.next_node != self.head: # curr_node = 最後一個節點的前一個節點
             curr_node = curr_node.next_node
 
+        delete_node = curr_node.next_node
         curr_node.next_node = self.head
+        delete_node.next_node = None
+
         self.size -= 1
 
     def remove(self, position):
@@ -125,11 +131,14 @@ class CircularLinkedList():
         if 0 < position <= self.size:
             curr_node = self.head # trick
             curr_position = 1
-            while curr_position < position:
+            while curr_position < position: # curr_node = 最後一個節點的前一個節點
                 curr_node = curr_node.next_node
                 curr_position += 1
 
-            curr_node.next_node = curr_node.next_node.next_node
+            delete_node = curr_node.next_node
+            curr_node.next_node = delete_node.next_node
+            delete_node.next_node = None
+
             self.size -= 1
         else:
             print('Position not exist')
@@ -141,9 +150,9 @@ class CircularLinkedList():
         :return:
         """
         if 0 < position <= self.size:
-            curr_node = self.head # trick
+            curr_node = self.head.next_node # trick
             curr_position = 1
-            while curr_position <= position: # trick
+            while curr_position < position: # trick
                 curr_node = curr_node.next_node
                 curr_position += 1
 
