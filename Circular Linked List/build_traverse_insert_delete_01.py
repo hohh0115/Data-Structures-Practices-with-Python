@@ -13,7 +13,7 @@ class Node():
         self.next_node = n # 指標欄位
 
     def print_data(self):
-        return "Node value: " + str(self.data)
+        print("Node value: " + str(self.data))
 
 class CircularLinkedList():
     """
@@ -161,6 +161,7 @@ class CircularLinkedList():
 
         while curr_node != self.head:
             print(curr_node.data)
+            # curr_node.print_data()
             curr_node = curr_node.next_node
 
 def main():
@@ -171,7 +172,7 @@ def main():
     myList.insert_last('4')
     myList.insert_last('5')
     myList.insert_last('6')
-    myList.insert('7', 3)
+    myList.insert('7', 2)
     myList.print_list_size()
     myList.print_list()
 
