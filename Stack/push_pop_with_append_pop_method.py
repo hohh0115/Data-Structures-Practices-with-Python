@@ -35,19 +35,28 @@ class Stack():
         return self.get_size() == 0
 
     def get_size(self):
-        print(len(self.stack))
+        print('Stack size: %d' % (len(self.stack)))
+
+    def get_top(self):
+        print('Top element: ', self.stack[len(self.stack)-1])
 
     def print_stack(self):
-        print(self.stack)
+        print('Stack:', self.stack)
 
 def main():
     myStack = Stack()
     myStack.push('1')
     myStack.push('2')
     myStack.push('3')
+    myStack.push('4')
     myStack.print_stack()
-    myStack.pop()
+    myStack.get_size()
+    myStack.get_top()
+
+    print('Pop one element:', myStack.pop())
+
     myStack.print_stack()
+    myStack.get_top()
     myStack.get_size()
 
 if __name__ == '__main__':
