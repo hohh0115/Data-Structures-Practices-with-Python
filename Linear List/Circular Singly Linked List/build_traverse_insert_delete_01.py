@@ -21,7 +21,7 @@ class CircularLinkedList():
     """
     def __init__(self):
         """
-        初始化一個有首節點(the head of the list)的環狀鍊結串列
+        初始化一個有首節點(the head of the list)的環狀鍊結串列 
         """
         self.head = Node(None, None) # the head of the list, will point to the first node of the list
         self.head.next_node = self.head # make it circular
