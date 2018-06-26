@@ -44,7 +44,8 @@ class Queue:
         remove one element to the head of the queue
         :return:
         """
-        if self.size <= 0:
+        # if self.size <= 0:
+        if self.head == self.tail:
             self.reset_queue()
             print('Queue Empty')
         else:
@@ -56,7 +57,7 @@ class Queue:
 
     def reset_queue(self):
         """
-        reset the head and the tail pointer and restart the queue
+        reset the head and the tail pointer to 0 and restart the queue
         :return:
         """
         self.tail = 0
