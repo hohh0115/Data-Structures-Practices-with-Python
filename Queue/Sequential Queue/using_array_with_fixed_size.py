@@ -2,7 +2,7 @@
 
 """
 在python中實作Queue的方法有三種：
-    1. 使用python的list data type以及相關的built-in functions ( e.g., append(), insert() and pop() )
+    1. 使用python的list data type以及相關的built-in functions ( e.g., insert() and pop() )，並且寫法上會把list的頭(index=0)作為queue的尾巴(用insert(0, data)做enqueue)、list的尾巴作為queue的頭(用pop()做dequeue)
     2. 使用python的queue module
     3. 單純使用陣列的方式去實作，需要事先宣告陣列的大小，這個也是最基本且最需要顧慮Queue它的結構原理的方法，但是在python中，會因為語言限制而有下列情況：
         1. 宣告陣列大小的問題：在python中，array就是python的list data type，所以若使用python去實作Queue時候，還是會用list data type，但會多一個integer max_size去宣告陣列大小
