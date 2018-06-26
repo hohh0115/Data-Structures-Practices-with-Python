@@ -19,8 +19,10 @@ class Queue:
     def __init__(self):
         """
         init an empty queue
+        head pointer - Points to the front of the Queue. Or in other words, it points to the element to be removed if the dequeue operation is called.
+        tail pointer - Points to the next empty spot in which the new element can be inserted
         """
-        self.max_size = 10
+        self.max_size = 5
         self.queue = [None] * self.max_size
         self.head = 0 # head pointer指向queue的第一個元素的index值
         self.tail = 0 # tail pointer指向queue的最後一個元素的下一個位置的index值
@@ -35,9 +37,12 @@ class Queue:
         if self.size >= self.max_size:
             print('Queue Full')
         else:
-            self.queue[self.tail] = user_data
-            self.tail += 1
-            self.size += 1
+            try:
+                self.queue[self.tail] = user_data
+                self.tail += 1
+                self.size += 1
+            except IndexError:
+                print('Queue Index Out of Range!')
 
     def dequeue(self):
         """
