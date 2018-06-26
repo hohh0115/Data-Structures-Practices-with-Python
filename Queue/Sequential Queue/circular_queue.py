@@ -2,6 +2,7 @@
 
 """
 Circular Queue: 如果queue滿了，就再重頭開始
+e.g., 陣列大小為5的queue，index為0~4，那考慮queue狀況後，head pointer以及tail pointer就會0~4之間循環
 改進linear_queue.py中，tail pointer超出index範圍的問題(IndexError)，而且queue前面的位置是空的狀況
 """
 
