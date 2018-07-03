@@ -19,7 +19,7 @@ class Graph:
         if isinstance(vertex, Vertex) and vertex.name not in self.vertex_list:
             self.vertex_list[vertex.name] = vertex
             for row in self.edge_matrix: # 對矩陣新增一行
-                    row.append(0)
+                row.append(0)
             self.edge_matrix.append([0] * (len(self.edge_matrix) + 1)) # 對矩陣新增一列
             self.edge_indices[vertex.name] = len(self.edge_indices) # 紀錄頂點在矩陣的第幾列
             return True
@@ -51,6 +51,7 @@ def main():
         myGraph.add_edge(edge[:1], edge[1:])
 
     myGraph.print_graph()
+    # print(len(myGraph.edge_matrix))
 
 if __name__ == '__main__':
     main()
