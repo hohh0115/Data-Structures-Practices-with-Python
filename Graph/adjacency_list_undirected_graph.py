@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-implementation of an undirected graph with Adjacency List, using Python dictionary
+implementation of an undirected graph with Adjacency List(鄰接串列), using Python dictionary
 
     1. 先對圖形建立頂點才可以加上邊(先add_vertex()再add_edge())
     2. 因為是無向圖形沒有方向，所以(A,B)這條邊，會分別存在於Vertex A的connected_to跟Vertex B的connected_to，因此add_edge()的部分會對兩個頂點各自加上
@@ -17,7 +17,7 @@ class Vertex:
         self.connected_to = dict() # 該頂點的邊
 
     def add_neighbor(self, neighbor_vertex, weight = 0):
-        if neighbor not in self.connected_to:
+        if neighbor_vertex not in self.connected_to:
             self.connected_to[neighbor_vertex] = weight
 
     def __str__(self):

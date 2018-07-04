@@ -23,6 +23,7 @@
 &nbsp;&nbsp;列<br><br>
 則：
 1. 對這個matrix而言，matrix[2][3] = 1 (也就是第2列第3行)
-2. 若用陣列的儲存方式是這樣：matrix_list = [ [0,1,1,1], [1,0,1,0], [1,1,0,1], [1,0,1,0] ]，而第2列第3行用陣列的表示是matrix_list[2][3]
+2. 若用陣列的儲存方式是一個二維陣列：matrix_list = [ [0,1,1,1], [1,0,1,0], [1,1,0,1], [1,0,1,0] ]，而第2列第3行用陣列的表示是matrix_list[2][3]
 3. 要對矩陣新增一行的話，就等於是對matrix_list這個二維陣列面的每個陣列append()一個值，因此搭配迴圈做增加: for row in matrix_list: row.append(值)
 4. 要對矩陣新增一列的話，就等於是對matrix_list這個二維陣列新增一個element，而這個element是一個陣列，matrix_list.append([值] * len(matrix_list[0]))
+5. 結論：矩陣matrix的第0列資訊位於陣列matrix_list的index=0的陣列元素中，第1列資訊位於index=1的陣列元素中 
