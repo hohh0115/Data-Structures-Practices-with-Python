@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-it is important that the size be a prime number so that the collision resolution algorithm can be as efficient as possible.
+
 """
 
 import random
@@ -23,7 +23,7 @@ class HashTable:
     def add(self, key, data):
         hash_value = self._hash_function(key)
 
-        if self.slots[hash_value] is None:
+        if self.slots[hash_value] is None: #
             self.slots[hash_value] = key
             self.data[hash_value] = data
         else:
