@@ -7,7 +7,7 @@
 ## Coming: ##
 
 1. ~~Graph~~
-2. Hash
+2. ~~Hash~~
 3. Heap
 
 ## Notes: ##
