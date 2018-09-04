@@ -21,7 +21,7 @@ class DoublyLinkedList():
     """
     初始化一個空的環狀的雙向鏈結串列 empty circular doubly linked list
     由於是雙向的，所以新增一個一個tail node，比較好操作
-    因此，有資料的節點是位於head node跟tail node中間的節點們
+    因此，有資料的節點是位於head node/dummy node跟tail node中間的節點們
     """
     def __init__(self):
         """

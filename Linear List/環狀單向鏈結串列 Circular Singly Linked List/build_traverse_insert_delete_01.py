@@ -21,9 +21,9 @@ class CircularLinkedList():
     """
     def __init__(self):
         """
-        初始化一個有首節點(the head of the list)的環狀鍊結串列 
+        初始化一個有首節點(dummy node)的環狀鍊結串列
         """
-        self.head = Node(None, None) # the head of the list, will point to the first node of the list
+        self.head = Node(None, None) # dummy node, will point to the first node of the list
         self.head.next_node = self.head # make it circular
         self.size = 0
 
@@ -58,7 +58,7 @@ class CircularLinkedList():
             curr_node = curr_node.next_node
 
         # 這裡可以確定curr_node是最後一個節點了
-        new_node = Node(user_data, curr_node.next_node) # new_node為要新增的節點，curr_node.next_node指向self.head
+        new_node = Node(user_data, curr_node.next_node) # new_node為要新增的節點，這時curr_node.next_node依然指向self.head
         curr_node.next_node = new_node # 連接
 
         self.size += 1
@@ -77,6 +77,7 @@ class CircularLinkedList():
     def insert(self, user_data, position):
         """
         插入任意position，這裡position是從1開始，而非0
+        插入第position=3的位置，則原本position=3的位置(index=position-1=2)的元素向後移動
         :param user_data:
         :param position:
         :return:
@@ -85,7 +86,7 @@ class CircularLinkedList():
             curr_node = self.head # trick
             curr_position = 1
 
-            while curr_position < position: # 第position位置前一個位置的節點
+            while curr_position < position: # 找到第position位置前一個位置的節點
                 curr_node = curr_node.next_node
                 curr_position += 1
 
